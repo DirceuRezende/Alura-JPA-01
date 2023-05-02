@@ -1,4 +1,4 @@
-package org.example;
+package br.com.alura.loja;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
