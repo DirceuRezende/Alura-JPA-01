@@ -5,9 +5,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "categorias")
 public class Categoria {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @EmbeddedId
+    private CategoriaId id;
     private String nome;
 
     public Categoria() {
@@ -15,22 +14,10 @@ public class Categoria {
     }
 
     public Categoria(String nome) {
-        this.nome = nome;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+        this.id = new CategoriaId(nome, "xpto");
     }
 
     public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
+        return this.id.getNome();
     }
 }
